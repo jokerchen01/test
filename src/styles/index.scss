@@ -4,7 +4,9 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 
+
 body {
+  @include scrollBar;
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -59,7 +61,8 @@ div:focus {
   }
 }
 
-// main-container global css
+
 .app-container {
   padding: 20px;
 }
+

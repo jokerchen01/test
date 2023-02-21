@@ -1,0 +1,215 @@
+@import "./style.scss";
+@import "./elementui-reset.scss";
+.f-curson {
+  cursor: pointer;
+}
+.common_bg {
+  height: 30px;
+  width: 300px;
+  background: url(~@/assets/images/common/smalltitle.png) no-repeat;
+  background-size: 100% 100%;
+  padding-left: 48px;
+
+  .common_lable {
+    display: inline-block;
+    margin-top: 8px;
+    height: 30px;
+    font-size: 26px;
+    line-height: 30px;
+    // font-family: PingFang SC;
+    font-weight: bold;
+    color: #ffffff;
+    // background: linear-gradient(180deg, #8DD6FF 0%, #FFFFFF 100%);
+    background: linear-gradient(0deg, #78ceff 10%, #ffffff 40% #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.common_title_bg {
+  height: 52px !important;
+  background: url("~@/assets/images/common/titlebox.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+
+  span {
+    font-family: HGGT;
+    line-height: 30px;
+    margin-left: 70px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fefeff;
+    background: linear-gradient(
+      0deg,
+      #ffffff 0%,
+      #d3e7ff 45.7275390625%,
+      #ffffff 48.486328125%,
+      #89b4e8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.common_box_bg {
+ /*  background-image: url("../../assets/images/eventcenter/bgbox.png"); */
+  background-size: cover;
+  background-position: center;
+}
+
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 0;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 0;
+  background: #7ac2ff;
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  border-radius: 0;
+  background: #adcbdf;
+}
+
+.el-pagination {
+  text-align: right;
+  margin-top: 30px;
+}
+
+.left_bgColor {
+  padding-left: 20px;
+  background-image: linear-gradient(
+    90deg,
+    rgba(11, 30, 35, 0.9),
+    rgba(14, 35, 43, 0.8),
+    hsla(0, 0%, 100%, 0)
+  );
+  z-index: 2;
+}
+
+.right_bgColor {
+  padding-right: 20px;
+  background-image: linear-gradient(
+    270deg,
+    rgba(11, 30, 35, 0.9),
+    rgba(14, 35, 43, 0.8),
+    hsla(0, 0%, 100%, 0)
+  );
+  z-index: 2;
+}
+
+.no_data {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 150px;
+  background: url(~@/assets/images/common/new_nodata.png) no-repeat;
+  background-size: 100% 100%;
+}
+.no_eventData {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 150px;
+  background: url(~@/assets/images/common/no_eventData.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.common_line {
+  height: 3px;
+  width: 100%;
+  background: url(~@/assets/images/common/pup_line.png) no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+.line_mg {
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+.pup_img {
+  height: 850px;
+}
+.f_pointer {
+  cursor: pointer;
+}
+.title:after {
+  width: 0 !important;
+}
+.omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.reply {
+  color: #5eccfa !important;
+  cursor: pointer;
+}
+.checkbg {
+  position: absolute;
+  bottom: -38px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(~@/assets/images/common/selectBg.png) no-repeat;
+  background-size: contain;
+}
+
+// 左右侧dom元素动画
+.leftFade-enter-active,
+.leftFade-leave-active {
+  transition: all 0.3s linear;
+}
+.leftFade-enter {
+  opacity: 0;
+  transform: translateX(-970px);
+}
+.leftFade-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+.leftFade-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+.leftFade-leave-to {
+  opacity: 0;
+  transform: translateX(-970px);
+}
+.rightFade-enter-active,
+.rightFade-leave-active {
+  transition: all 0.3s ease;
+}
+.rightFade-enter {
+  opacity: 0;
+  transform: translateX(970px);
+}
+.rightFade-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+.rightFade-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+.rightFade-leave-to {
+  opacity: 0;
+  transform: translateX(970px);
+}
+.timeEnd {
+  padding-left: 20px;
+  display: inline-block;
+  font-size: 16px;
+  color: #ffe608;
+  font-weight: 500;
+}
