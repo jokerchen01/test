@@ -7,7 +7,7 @@
           <div class="input_box">
             <img src="~@/assets/images/person_icon.png" class="img" />
             <el-form-item prop="username">
-              <el-input v-model="loginForm.username" placeholder="学号">
+              <el-input v-model="loginForm.username" placeholder="用户名">
               </el-input>
             </el-form-item>
           </div>
@@ -98,8 +98,8 @@ export default {
     };
     return {
       loginForm: {
-        username: "admin",
-        password: "111111",
+        username: "网格员1",
+        password: "123456",
         code: "",
       },
       loginRules: {
@@ -119,7 +119,7 @@ export default {
   },
   watch: {},
   methods: {
-    showPwd() {
+   /*  showPwd() {
       if (this.passwordType === "password") {
         this.passwordType = "";
       } else {
@@ -128,8 +128,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.password.focus();
       });
-    },
+    }, */
     handleLogin() {
+
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           this.loading = true;
@@ -154,19 +155,19 @@ export default {
         }
       });
     },
-    goRegister() {
+   /*  goRegister() {
       this.isShowLogin = !this.isShowLogin;
       setTimeout(() => {
         this.isShowRegister = !this.isShowRegister;
       }, 1000);
-    },
-    goLogin() {
+    }, */
+ /*    goLogin() {
       this.isShowRegister = !this.isShowRegister;
 
       setTimeout(() => {
         this.isShowLogin = !this.isShowLogin;
       }, 1000);
-    },
+    }, */
   },
 };
 </script>

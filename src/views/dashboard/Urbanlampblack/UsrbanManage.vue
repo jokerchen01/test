@@ -10,67 +10,48 @@
         <div class="dialog_summarize_item">
           <p class="sum_text">本月突出问题</p>
           <div class="sum_bg"></div>
-          <div
-            class="sum_num"
-            @click="ShowProblemTable(problemObj.Month)"
-            :class="problemTraget.type == '本月突出问题' ? 'active' : ''"
-          >
-            0
+          <div class="sum_num" @click="ShowProblemTable(problemObj.Month)"
+            :class="problemTraget.type == '本月突出问题' ? 'active' : ''">
+           245
           </div>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">已结案问题数</p>
           <div class="sum_bg"></div>
-          <p
-            class="period"
-            @click="ShowProblemTable(problemObj.Closure)"
-            :class="problemTraget.type == '已结案问题数' ? 'active' : ''"
-          >
-            0
+          <p class="period" @click="ShowProblemTable(problemObj.Closure)"
+            :class="problemTraget.type == '已结案问题数' ? 'active' : ''">
+            198
           </p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">待处置问题数</p>
           <div class="sum_bg"></div>
-          <p
-            class="sum_num"
-            @click="ShowProblemTable(problemObj.disposed)"
-            :class="problemTraget.type == '待处置问题数' ? 'active' : ''"
-          >
-            0
+          <p class="sum_num" @click="ShowProblemTable(problemObj.disposed)"
+            :class="problemTraget.type == '待处置问题数' ? 'active' : ''">
+            41
           </p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">超期办理问题数</p>
           <div class="sum_bg"></div>
-          <p
-            class="sum_num"
-            @click="ShowProblemTable(problemObj.overdue)"
-            :class="problemTraget.type == '超期办理问题数' ? 'active' : ''"
-          >
-            0
+          <p class="sum_num" @click="ShowProblemTable(problemObj.overdue)"
+            :class="problemTraget.type == '超期办理问题数' ? 'active' : ''">
+            2
           </p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">今日突出问题数</p>
           <div class="sum_bg"></div>
-          <p
-            class="sum_num"
-            @click="ShowProblemTable(problemObj.Today)"
-            :class="problemTraget.type == '今日突出问题数' ? 'active' : ''"
-          >
-            0
+          <p class="sum_num" @click="ShowProblemTable(problemObj.Today)"
+            :class="problemTraget.type == '今日突出问题数' ? 'active' : ''">
+            2
           </p>
         </div>
       </section>
       <section>
         <transition name="AITable">
-          <ProblemPup
-            v-show="isShowProblemTable"
-            :problemObj="problemObj"
-            @showDetail="showDetail"
-            @handleTableChange="handleTableChange"
-          ></ProblemPup>
+          <ProblemPup v-show="isShowProblemTable" :problemObj="problemObj" @showDetail="showDetail"
+            @handleTableChange="handleTableChange"></ProblemPup>
         </transition>
       </section>
       <div class="gdp_row">
@@ -96,7 +77,7 @@
           <div class="sum_num">
             <!--    @click="ShowAITable('今日发现案件数')"
             :class="aiTraget == '今日发现案件数' ? 'active' : ''" -->
-            0
+            69
           </div>
         </div>
         <div class="dialog_summarize_item">
@@ -105,46 +86,34 @@
           <p class="sum_num">
             <!--      @click="ShowAITable('今日应处置案件数')"
             :class="aiTraget == '今日应处置案件数' ? 'active' : ''" -->
-            0
+            45
           </p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">今日已处置案件数</p>
           <div class="sum_bg"></div>
-          <p class="sum_num">0</p>
+          <p class="sum_num">12</p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">未处置案件数</p>
           <div class="sum_bg"></div>
-          <p
-            class="sum_num"
-            @click="ShowAITable(aiObj.disposed)"
-            :class="aiTraget.type == '未处置案件数' ? 'active' : ''"
-          >
-            0
+          <p class="sum_num" @click="ShowAITable(aiObj.disposed)" :class="aiTraget.type == '未处置案件数' ? 'active' : ''">
+           33
           </p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">本月超期处置</p>
           <div class="sum_bg"></div>
-          <p
-            class="period"
-            @click="ShowAITable(aiObj.overdue)"
-            :class="aiTraget.type == '本月超期处置' ? 'active' : ''"
-          >
-            0
+          <p class="period" @click="ShowAITable(aiObj.overdue)" :class="aiTraget.type == '本月超期处置' ? 'active' : ''">
+           0
           </p>
         </div>
       </section>
 
       <section>
         <transition name="AITable">
-          <AiListPup
-            v-show="isShowAITable"
-            :aiObj="aiObj"
-            @showDetail="showDetail"
-            @handleTableChange="handleAITableChange"
-          ></AiListPup>
+          <AiListPup v-show="isShowAITable" :aiObj="aiObj" @showDetail="showDetail"
+            @handleTableChange="handleAITableChange"></AiListPup>
         </transition>
       </section>
       <section class="title">
@@ -156,27 +125,27 @@
         <div class="dialog_summarize_item">
           <p class="sum_text">今日上报案件数</p>
           <div class="sum_bg"></div>
-          <div class="sum_num">0</div>
+          <div class="sum_num">635</div>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">应处置案件数</p>
           <div class="sum_bg"></div>
-          <p class="sum_num">0</p>
+          <p class="sum_num">635</p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">已处置案件数</p>
           <div class="sum_bg"></div>
-          <p class="sum_num">0</p>
+          <p class="sum_num">469</p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">按期未处置数</p>
           <div class="sum_bg"></div>
-          <p class="period">0</p>
+          <p class="period">166</p>
         </div>
         <div class="dialog_summarize_item">
           <p class="sum_text">监督员在线数量</p>
           <div class="sum_bg"></div>
-          <p :class="obj.supervise < 51 ? 'period' : 'sum_num'">0</p>
+          <p :class="obj.supervise < 51 ? 'period' : 'sum_num'">49</p>
         </div>
       </section>
       <div class="gdp_row">
@@ -192,18 +161,10 @@
       <section class="gdp_row">
         <div class="gdp_row_left" style="margin-left: 0">
           <div class="tabs">
-            <div
-              class="tab_item"
-              :class="{ tab_item_active: typeStatus == 1 }"
-              @click.stop="typeStatus = 1"
-            >
+            <div class="tab_item" :class="{ tab_item_active: typeStatus == 1 }" @click.stop="typeStatus = 1">
               类型
             </div>
-            <div
-              class="tab_item"
-              :class="{ tab_item_active: typeStatus == 2 }"
-              @click.stop="typeStatus = 2"
-            >
+            <div class="tab_item" :class="{ tab_item_active: typeStatus == 2 }" @click.stop="typeStatus = 2">
               区域
             </div>
             <!-- <div
@@ -305,23 +266,23 @@ export default {
   },
 
   mounted() {
-    /* this.reqSzcgTcData(); */
+
     this.initData();
     this.initNewData();
-    this.getNorm();
+
     this.getEvent();
-    this.reqSzcgAI();
+
     this.getType();
   },
   watch: {
     typeStatus: {
       handler(newValue) {
-        if (newValue == 1) {
-     
+        if (this.typeStatus == 1) {
+
           this.getType();
-        } else if (newValue == 2) {
+        } else if (this.typeStatus == 2) {
           this.getArea();
-        } else if (newValue == 3) {
+        } else if (this.typeStatus == 3) {
           this.getTime();
         }
       },
@@ -441,51 +402,15 @@ export default {
         { type: "市容环境设施", value: 49, rq: "02-03" },
         { type: "街面秩序", value: 378, rq: "02-03" },
       ];
-      if (res.length == 0) return;
-      let time = this.$moment().format("MM-DD");
 
-      let time1 = this.returnTime(1);
-      let time2 = this.returnTime(2);
-      let time3 = this.returnTime(3);
-      let time4 = this.returnTime(4);
-      let time5 = this.returnTime(5);
-      let time6 = this.returnTime(6);
 
-      let timeList = [time6, time5, time4, time3, time2, time1, time];
-      let dataList = [];
-      timeList.forEach((j) => {
-        let json = {};
 
-        res.forEach((v) => {
-          if (j == v.rq) {
-            json.rq = v.rq;
-            if (v.type == "市容环境") {
-              json.srhj = v.value;
-            } else if (v.type == "宣传广告") {
-              json.xcgg = v.value;
-            } else if (v.type == "街面秩序") {
-              json.jmcx = v.value;
-            } else if (v.type == "施工管理") {
-              json.sggl = v.value;
-            }
-          }
-        });
-        dataList.push(json);
-      });
 
-      let name = [],
-        arr = [], // 市容环境
-        brr = [], // 宣传广告
-        crr = []; // 街面秩序
-      let dataList2 = dataList.filter((v) => {
-        if (v.rq) return v;
-      });
-      dataList2.forEach((v) => {
-        name.push(this.$moment(v.rq).format("MM-DD"));
-        arr.push(v.srhj || 0);
-        brr.push(v.xcgg || 0);
-        crr.push(v.jmcx || 0);
-      });
+      let name = ['01-30','01-31','02-01','02-02','02-03',];
+      let arr = [330,250,280,300,400];
+      let brr = [130,150,180,100,100];
+      let crr = [160,200,220,300,100];
+
       gdpRectTrend.xAxis[0].data = name;
       gdpRectTrend.series = [
         {
@@ -582,7 +507,7 @@ export default {
            
           });
         }); */
-     
+
       let res = [
         { inst_num: 613, archive_num: 607, sub_type_name: "非机动车乱停放" },
         { inst_num: 367, archive_num: 361, sub_type_name: "违规标语宣传品" },
@@ -641,9 +566,9 @@ export default {
       GDPTrend.series[1].data = brr;
 
 
-        let echartsObj = this.$echarts.init(this.$refs.GDPTrend);
-        echartsObj.setOption(GDPTrend);
-    
+      let echartsObj = this.$echarts.init(this.$refs.GDPTrend);
+      echartsObj.setOption(GDPTrend);
+
     },
     getTime() {
       /*  this.$api.statePup
@@ -888,6 +813,7 @@ export default {
   font-weight: 500;
   color: #ffffff;
   z-index: 1003;
+
   .tab_item {
     width: 95px;
     height: 35px;
@@ -897,6 +823,7 @@ export default {
     background-size: 100%;
     cursor: pointer;
   }
+
   .tab_item_active {
     background-size: 100%;
     background: url(~@/assets/images/common/active_tab_name_bg.png) no-repeat;
@@ -908,11 +835,13 @@ export default {
     width: 100%;
     height: 276px;
     display: flex;
+
     &_right {
       width: 267px;
       height: 100%;
       padding-right: 44px;
       position: relative;
+
       .gdp_title {
         width: 233px;
         height: 45px;
@@ -924,11 +853,11 @@ export default {
         line-height: 45px;
         text-align: center;
       }
+
       .right_title {
         width: 262px;
         height: 30px;
-        background: url(~@/assets/images/common/right_tab_title_bg.png)
-          no-repeat;
+        background: url(~@/assets/images/common/right_tab_title_bg.png) no-repeat;
         background-size: 100%;
         font-size: 22px;
         font-family: PangMenZhengDao;
@@ -936,10 +865,12 @@ export default {
         padding-left: 24px;
         line-height: 30px;
       }
+
       .gdp_num {
         height: 73px;
         text-align: center;
         margin-top: 22px;
+
         &_vlaue {
           width: 233px;
           font-size: 38px;
@@ -952,6 +883,7 @@ export default {
           -webkit-text-fill-color: transparent;
           padding-bottom: 14px;
         }
+
         &_unit {
           width: 233px;
           font-size: 18px;
@@ -959,6 +891,7 @@ export default {
           color: #ffffff;
         }
       }
+
       .gdp_num_bg {
         margin-left: 33px;
         width: 171px;
@@ -968,28 +901,32 @@ export default {
         position: absolute;
         bottom: 25px;
       }
+
       .compared_same {
         width: 184px;
         height: 30px;
         position: absolute;
         bottom: 20px;
         left: 28px;
+
         .compared_same_bg {
           height: 18px;
-          background: url(~@/assets/images/common/compared_same_bg.png)
-            no-repeat;
+          background: url(~@/assets/images/common/compared_same_bg.png) no-repeat;
           background-size: 100%;
         }
+
         .cs_num_box {
           display: flex;
           position: absolute;
           bottom: 18px;
           left: 33px;
+
           .cs_title {
             font-size: 18px;
             font-family: PingFang SC;
             color: #ffffff;
           }
+
           .up_icon {
             margin-left: 5px;
             margin-right: 8px;
@@ -999,6 +936,7 @@ export default {
             background: url(~@/assets/images/common/up_icon.png) no-repeat;
             background-size: 100%;
           }
+
           .cs_num {
             font-size: 26px;
             font-family: DINPRO;
@@ -1011,11 +949,13 @@ export default {
         }
       }
     }
+
     &_left {
       width: 700px;
       height: 100%;
       margin-left: 43px;
       position: relative;
+
       .left_title {
         width: 340px;
         height: 30px;
@@ -1028,9 +968,11 @@ export default {
         line-height: 30px;
       }
     }
+
     .new_right {
       width: 300px !important;
     }
+
     .new_left {
       width: 600px !important;
       margin-left: 10px;
@@ -1041,6 +983,7 @@ export default {
     width: 100%;
     height: 234px;
   }
+
   .circular1 {
     background-image: url(~@/assets/images/common/bubble.png);
     background-repeat: no-repeat;
@@ -1049,6 +992,7 @@ export default {
     position: relative;
     z-index: 999;
   }
+
   .circular2 {
     background-image: url(~@/assets/images/common/bubble.png);
     background-repeat: no-repeat;
@@ -1057,6 +1001,7 @@ export default {
     position: relative;
     z-index: 999;
   }
+
   .dialog_summarize {
     width: 100%;
     height: 130px;
@@ -1064,6 +1009,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+
     .dialog_summarize_item {
       width: 25%;
       height: 100%;
@@ -1075,7 +1021,8 @@ export default {
         color: #ffffff;
         line-height: 24px;
         letter-spacing: 1px;
-        padding-top: 0.039063rem; /* 15 / 384 */
+        padding-top: 0.039063rem;
+        /* 15 / 384 */
         padding-left: 0.052083rem;
       }
 
@@ -1119,6 +1066,7 @@ export default {
         padding-left: 14px;
         padding-top: 20px;
         display: flex;
+
         .retail_sales_total {
           width: 109px;
           font-size: 38px;
@@ -1130,6 +1078,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .retail_sales_unit {
           width: 50px;
           height: 17px;
@@ -1137,6 +1086,7 @@ export default {
           font-family: PingFang SC;
           color: #ffffff;
         }
+
         .retail_sales_ratio {
           font-size: 24px;
           font-family: DINPRO;
@@ -1146,6 +1096,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .down_icon {
           margin-left: 2px;
           margin-right: 8px;
@@ -1158,6 +1109,7 @@ export default {
       }
     }
   }
+
   .dialog_summarize_two {
     width: 100%;
     height: 130px;
@@ -1165,6 +1117,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+
     .dialog_summarize_item {
       width: 25%;
       height: 100%;
@@ -1176,7 +1129,8 @@ export default {
         color: #ffffff;
         line-height: 24px;
         letter-spacing: 1px;
-        padding-top: 0.039063rem; /* 15 / 384 */
+        padding-top: 0.039063rem;
+        /* 15 / 384 */
         padding-left: 0.052083rem;
       }
 
@@ -1220,6 +1174,7 @@ export default {
         padding-left: 14px;
         padding-top: 20px;
         display: flex;
+
         .retail_sales_total {
           width: 109px;
           font-size: 38px;
@@ -1231,6 +1186,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .retail_sales_unit {
           width: 50px;
           height: 17px;
@@ -1238,6 +1194,7 @@ export default {
           font-family: PingFang SC;
           color: #ffffff;
         }
+
         .retail_sales_ratio {
           font-size: 24px;
           font-family: DINPRO;
@@ -1247,6 +1204,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .down_icon {
           margin-left: 2px;
           margin-right: 8px;
@@ -1259,6 +1217,7 @@ export default {
       }
     }
   }
+
   .dialog_summarize_AI {
     width: 109%;
     height: 120px;
@@ -1266,6 +1225,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+
     .dialog_summarize_item {
       width: 25%;
       height: 100%;
@@ -1277,7 +1237,8 @@ export default {
         color: #ffffff;
         line-height: 24px;
         letter-spacing: 1px;
-        padding-top: 0.039063rem; /* 15 / 384 */
+        padding-top: 0.039063rem;
+        /* 15 / 384 */
         padding-left: 0.052083rem;
       }
 
@@ -1321,6 +1282,7 @@ export default {
         padding-left: 14px;
         padding-top: 20px;
         display: flex;
+
         .retail_sales_total {
           width: 109px;
           font-size: 38px;
@@ -1332,6 +1294,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .retail_sales_unit {
           width: 50px;
           height: 17px;
@@ -1339,6 +1302,7 @@ export default {
           font-family: PingFang SC;
           color: #ffffff;
         }
+
         .retail_sales_ratio {
           font-size: 24px;
           font-family: DINPRO;
@@ -1348,6 +1312,7 @@ export default {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
+
         .down_icon {
           margin-left: 2px;
           margin-right: 8px;
@@ -1360,15 +1325,18 @@ export default {
       }
     }
   }
+
   .title {
     display: flex;
     justify-content: center;
+
     .out_problems {
       width: 500px;
       font-size: 20px;
       text-align: center;
       background: url(~@/assets/images/newEvent/SZCG.png) no-repeat;
       margin-top: 10px;
+
       .content {
         line-height: 36px;
         font-family: PangMenZhengDao;
@@ -1382,6 +1350,7 @@ export default {
     }
   }
 }
+
 .table_pop {
   margin: 10px 0 20px 0;
 }
@@ -1390,22 +1359,27 @@ export default {
 .AITable-leave-active {
   transition: all 0.5s ease;
 }
+
 .AITable-enter {
   opacity: 0;
   transform: translateY(-100px);
 }
+
 .AITable-enter-to {
   opacity: 1;
   transform: translateY(0);
 }
+
 .AITable-leave {
   opacity: 1;
   transform: translateY(0);
 }
+
 .AITable-leave-to {
   opacity: 0;
   transform: translateY(-100px);
 }
+
 .active {
   font-size: 60px !important;
   transition: all 0.5s linear;

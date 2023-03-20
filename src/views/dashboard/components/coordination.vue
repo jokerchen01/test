@@ -51,8 +51,7 @@ export default {
       let res = [
         { text: "金牛区消防救援大队", num: 2 },
         { text: "金牛区住建和交通局", num: 2 },
-        { text: "金牛区住建和交通局", num: 2 },
-        { text: "金牛区住建和交通局", num: 2 },
+
       ];
       this.list = res;
       if (this.list?.length) {
@@ -63,7 +62,7 @@ export default {
         this.list.forEach((item) => {
           item.roate = ((Number.parseInt(item.num) / total) * 100).toFixed(1);
         });
-        console.log("=============list", this.list);
+        
       }
     },
     openEventList(v) {

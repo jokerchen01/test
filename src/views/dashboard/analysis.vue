@@ -8,10 +8,10 @@
 <!--      <eventQsPage title="事件增速" mode="bar"></eventQsPage>-->
 <!--    </div>-->
     <section class="analytical">
-      <streetevent v-ehl-interval:initData/>
-      <coordination v-ehl-interval:initData/>
-      <commissionBureau v-ehl-interval:initData/>
-      <heightArea v-ehl-interval:initData/>
+      <streetevent />
+      <coordination />
+      <commissionBureau />
+      <heightArea />
     </section>
   </section>
 </template>

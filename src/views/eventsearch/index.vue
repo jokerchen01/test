@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="component" @changeState="changeState"></component>
+    <component :is="component" @changeState="changeState" @changeID="changeID" :id="id" :state="state"></component>
   </div>
 </template>
 
@@ -12,18 +12,29 @@ export default {
     detail,
     search,
   },
+ props:{
+  state:{
+    type:String,
+    default:'全部'
+  }
+ },
   data() {
     return {
       component: "search",
+      id: 0,
+
     };
   },
   methods: {
     changeState(v) {
       this.component = v;
     },
+    changeID(v) {
+      this.id = v
+
+    }
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

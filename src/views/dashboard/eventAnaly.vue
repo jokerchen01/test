@@ -7,7 +7,7 @@
         <div class="DRSJ_bg">
           <div class="DRSJ_icon"></div>
           <div class="event_box">
-            <div class="value">100</div>
+            <div class="value">2521</div>
             <div class="lable">当日事件总数</div>
           </div>
           <div>
@@ -15,12 +15,12 @@
             <div class="compare">
               <div v-if="obj.flag" class="rise"></div>
               <div v-else class="slip"></div>
-              <div class="text">20<span class="unit">%</span></div>
+              <div class="text">0.4<span class="unit">%</span></div>
             </div>
           </div>
           <div class="ic_line"></div>
           <div>
-            <div class="value urgenColor">5</div>
+            <div class="value urgenColor">3</div>
             <div class="lable">紧急事件数</div>
           </div>
         </div>

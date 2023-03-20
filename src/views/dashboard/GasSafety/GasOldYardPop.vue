@@ -51,7 +51,9 @@ export default {
   props: ["status"],
   data() {
     return {
-      tableList: [],
+      tableList: 
+
+[{"0922zt":"完工","xqmc":"抚琴西北街1号","ssjd":"抚琴街办","fzr_phone":"18628330277","xxdz":"抚琴西北街1号","fzr":"廖长缨"},{"0922zt":"完工","xqmc":"抚琴西北街3号","ssjd":"抚琴街办","fzr_phone":"18628330277","xxdz":"抚琴西北街3号","fzr":"廖长缨"},{"0922zt":"完工","xqmc":"抚琴西北街30号","ssjd":"抚琴街办","fzr_phone":"18628330277","xxdz":"抚琴西北街30号","fzr":"廖长缨"},{"0922zt":"完工","xqmc":"抚琴西北街38号","ssjd":"抚琴街办","fzr_phone":"18628330277","xxdz":"抚琴西北街38号","fzr":"廖长缨"},{"0922zt":"完工","xqmc":"营门口路52号","ssjd":"抚琴街办","fzr_phone":"18628330277","xxdz":"营门口路52号","fzr":"廖长缨"},{"0922zt":"完工","xqmc":"五里墩路17号院","ssjd":"茶店子街办","fzr_phone":"18628330277","xxdz":"五里墩路17号院","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"爱民路124号外院","ssjd":"荷花池街办","fzr_phone":"18628330277","xxdz":"爱民路124号外院","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"花圃路6号","ssjd":"荷花池街办","fzr_phone":"18628330277","xxdz":"花圃路6号","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"西青路55号","ssjd":"西安路街办","fzr_phone":"18628330277","xxdz":"西青路55号","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"爱民路124号内院","ssjd":"荷花池街办","fzr_phone":"18628330277","xxdz":"爱民路124号内院","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"西体北路8号","ssjd":"荷花池街办","fzr_phone":"18628330277","xxdz":"西体北路8号","fzr":"廖长缨"},{"0922zt":"准备进场","xqmc":"西青路53号","ssjd":"西安路街办","fzr_phone":"18628330277","xxdz":"西青路53号","fzr":"廖长缨"}],
     };
   },
   mounted() {
@@ -61,10 +63,7 @@ export default {
     changeStaus() {
       this.$emit("changeStatus", 0);
     },
-    async getRqaqLJYL() {
-      let res = await this.$api.statePup.getRqaqLJYL();
-      this.tableList = res;
-    },
+  
   },
 };
 </script>

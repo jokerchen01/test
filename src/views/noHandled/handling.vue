@@ -1,6 +1,6 @@
 <template>
   <div class="personal">
-    <eventsearch></eventsearch>
+    <eventsearch :state="state"></eventsearch>
   </div>
 </template>
 
@@ -11,10 +11,12 @@ export default {
     eventsearch,
   },
   data() {
-    return {};
+    return {
+      state:'处理中'
+    };
   },
   mounted() {
-    this.getFormData();
+
   },
   methods: {},
 };

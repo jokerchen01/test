@@ -12,7 +12,9 @@ import permission from './acl/permission'
 */
 import * as test from "./test";
 import * as home from "./home";
+import * as event from "./event";
 export default {
   test,
-  home
+  home,
+  event
 };

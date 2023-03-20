@@ -18,7 +18,7 @@ export default {
         num2List = [],
         num3List = [];
       let res = [
-        { street: "金牛区综合执法局", num1: 16, num3: 0, num2: null },
+        { street: "金牛区综合执法局", num1: 95, num3: 0, num2: null },
         { street: "金牛环投集团", num1: 3, num3: 0, num2: null },
         {
           street: "金牛国有资产投资经营集团有限公司",

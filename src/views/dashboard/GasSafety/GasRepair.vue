@@ -186,10 +186,10 @@ export default {
     };
   },
   mounted() {
-    this.reset();
+   /*  this.reset(); */
   },
   methods: {
-    async reqRqaqQXJX() {
+    /* async reqRqaqQXJX() {
       let res = await this.$api.statePup.getRqaqQXJX({
         pageSize: this.pageSize,
         offsetNum: (this.page - 1) * this.pageSize,
@@ -200,10 +200,10 @@ export default {
       res.length != 0 ? (this.total = res[0].total) : (this.total = 0);
 
       this.tableList = res;
-    },
+    }, */
     handleTableChange(page) {
-      this.page = page;
-      this.reqRqaqQXJX();
+     /*  this.page = page;
+      this.reqRqaqQXJX(); */
     },
     reset() {
       this.page = 1;

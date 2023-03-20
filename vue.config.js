@@ -34,7 +34,7 @@ module.exports = {
         target: "http://localhost:8888",
       },
     },
-    before: require("./mock/mock-server.js"),
+   
   },
 
   configureWebpack: {

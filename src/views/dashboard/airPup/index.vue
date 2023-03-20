@@ -4,17 +4,17 @@
       <div class="dialog_summarize_item">
         <p class="sum_text">空气质量达标天数</p>
         <div class="sum_bg"></div>
-        <div class="sum_num">100</div>
+        <div class="sum_num">105</div>
       </div>
       <div class="dialog_summarize_item">
         <p class="sum_text">距离全年达标剩余天数</p>
         <div class="sum_bg"></div>
-        <p class="sum_num">200</p>
+        <p class="sum_num">195</p>
       </div>
       <div class="dialog_summarize_item">
         <p class="sum_text">今年剩余天数</p>
         <div class="sum_bg"></div>
-        <p class="sum_num ">200</p>
+        <p class="sum_num ">210</p>
       </div>
      
      <!--  <div class="dialog_summarize_item">
@@ -30,7 +30,7 @@
       <div class="dialog_summarize2_item" @click="showTable(target.AQI)">
         <p class="sum_text">AQI</p>
         <div class="sum_bg"></div>
-        <div class="sum_num sum_AQI" :class="types.type == 'AQI' ? 'active' : ''">40</div>
+        <div class="sum_num sum_AQI" :class="types.type == 'AQI' ? 'active' : ''">80</div>
         <div class="state">优</div>
         <div class="state_bg"></div>
       </div>
@@ -38,19 +38,19 @@
       <div class="dialog_summarize2_item" @click="showTable(target.PM25)">
         <p class="sum_text">PM<sub>2.5</sub></p>
         <div class="sum_bg"></div>
-        <div class="sum_num" :class="types.type == 'PM2.5' ? 'active' : ''">50<div class="sub1">ug/m3</div> </div>
+        <div class="sum_num" :class="types.type == 'PM2.5' ? 'active' : ''">61<div class="sub1">ug/m3</div> </div>
         
       </div>
       <div class="dialog_summarize2_item" @click="showTable(target.PM10)">
         <p class="sum_text">PM<sub>10</sub></p>
         <div class="sum_bg"></div>
-        <div class="sum_num" :class="types.type == 'PM10' ? 'active' : ''">40<div class="sub1">ug/m3</div></div>
+        <div class="sum_num" :class="types.type == 'PM10' ? 'active' : ''">91<div class="sub1">ug/m3</div></div>
         
       </div>
       <div class="dialog_summarize2_item" @click="showTable(target.NO2)">
         <p class="sum_text">NO<sub>2</sub></p>
         <div class="sum_bg"></div>
-        <div class="sum_num" :class="types.type == 'NO2' ? 'active' : ''">20  <div class="sub1">ug/m3</div></div>
+        <div class="sum_num" :class="types.type == 'NO2' ? 'active' : ''">41  <div class="sub1">ug/m3</div></div>
        
       </div>
       <div class="dialog_summarize2_item" @click="showTable(target.O3)">
@@ -58,20 +58,20 @@
         <div class="sum_bg special" ></div>
         <el-tooltip placement="bottom-end">
         <div slot="content">数据获取时间:{{obj.time}}</div>
-       <div class="sum_num" :class="types.type == 'O3' ? 'active' : ''">20  <div class="sub1">ug/m3</div> </div>
+       <div class="sum_num" :class="types.type == 'O3' ? 'active' : ''">7 <div class="sub1">ug/m3</div> </div>
       </el-tooltip>
      
       </div>
       <div class="dialog_summarize2_item" @click="showTable(target.SO2)">
         <p class="sum_text">SO<sub>2</sub></p>
         <div class="sum_bg"></div>
-        <div class="sum_num"  :class="types.type == 'SO2' ? 'active' : ''">0   <div class="sub1">ug/m3</div></div>
+        <div class="sum_num"  :class="types.type == 'SO2' ? 'active' : ''">3  <div class="sub1">ug/m3</div></div>
           
       </div>
       <div class="dialog_summarize2_item special_CO" @click="showTable(target.CO)">
         <p class="sum_text sum_text_CO">CO</p>
         <div class="sum_bg"></div>
-        <div class="sum_num sum_CO"  :class="types.type == 'CO' ? 'active' : ''">35<div class="sub1">mg/m3</div></div>
+        <div class="sum_num sum_CO"  :class="types.type == 'CO' ? 'active' : ''">0.8<div class="sub1">mg/m3</div></div>
           
       </div>
     </section>
@@ -317,11 +317,11 @@ export default {
             },
             {
               name: "PM25",
-              value: 0,
+              value: 15,
             },
             {
               name: "PM10",
-              value: 0,
+              value: 1,
             },
             {
               name: "CO",
@@ -655,7 +655,7 @@ export default {
   display: flex;
 
   .left_echart {
-    width: 285px;
+    width: 320px;
     position: relative;
     .air_dom {
       position: absolute;
@@ -692,7 +692,7 @@ export default {
   }
   .seven_top {
     display: flex;
-    width: 340px;
+    width: 322px;
     position: relative;
     .seven_shop {
       width: 340px;
@@ -714,7 +714,7 @@ export default {
   }
   .table {
     height: 200px;
-    width: 490px;
+    width: 375px;
     .head {
       background: url(~@/assets/images/newEvent/thead_box.png);
       background-size: 100% 100%;

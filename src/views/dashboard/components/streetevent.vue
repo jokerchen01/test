@@ -19,18 +19,18 @@ export default {
         num3List = [];
       let arr = [
       /*   { street: "未归属街道名称", num1: 45, num3: 0, num2: 0 }, */
-        { street: "沙河源街道", num1: 7, num3: 0, num2: 0 },
-        { street: "荷花池街道", num1: 7, num3: 0, num2: 0 },
-        { street: "金泉街道", num1: 7, num3: 0, num2: 0 },
-        { street: "西安路街道", num1: 7, num3: 0, num2: 0 },
-        { street: "茶店子街道", num1: 6, num3: 0, num2: 0 },
-        { street: "营门口街道", num1: 5, num3: 0, num2: 0 },
-        { street: "抚琴街道", num1: 4, num3: 0, num2: 0 },
-        { street: "天回镇街道", num1: 3, num3: 0, num2: 0 },
-        { street: "凤凰山街道", num1: 3, num3: 0, num2: 0 },
-        { street: "五块石街道", num1: 2, num3: 0, num2: 0 },
-        { street: "驷马桥街道", num1: 1, num3: 0, num2: 0 },
-        { street: "九里堤街道", num1: 1, num3: 0, num2: 0 },
+        { street: "沙河源街道", num1: 140, num3: 0, num2: 0 },
+        { street: "荷花池街道", num1: 186, num3: 0, num2: 0 },
+        { street: "金泉街道", num1: 197, num3: 0, num2: 0 },
+        { street: "西安路街道", num1: 166, num3: 0, num2: 0 },
+        { street: "茶店子街道", num1: 150, num3: 0, num2: 0 },
+        { street: "营门口街道", num1: 175, num3: 0, num2: 0 },
+        { street: "抚琴街道", num1: 165, num3: 0, num2: 0 },
+        { street: "天回镇街道", num1: 124, num3: 0, num2: 0 },
+        { street: "凤凰山街道", num1: 141, num3: 0, num2: 0 },
+        { street: "五块石街道", num1: 120, num3: 0, num2: 0 },
+        { street: "驷马桥街道", num1: 115, num3: 0, num2: 0 },
+        { street: "九里堤街道", num1: 130, num3: 0, num2: 0 },
       ];
     
         arr.forEach((v) => {
