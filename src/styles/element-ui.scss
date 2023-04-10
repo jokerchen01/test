@@ -21,7 +21,7 @@
   left: 0;
   position: relative;
   margin: 0 auto;
-  height: 600px;
+/*   height: 400px; */
   overflow-y: auto;
   @include scrollBar;
 }
@@ -68,9 +68,10 @@
   text-align: center;
 }
 .avatar {
-  width: 178px;
+  width: 100%;
+  /* width: 178px;
   height: 178px;
-  display: block;
+  display: block; */
 }
 .el-row {
   margin-bottom: 20px;

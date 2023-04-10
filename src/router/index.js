@@ -48,12 +48,13 @@ export const constantRoutes = [
         component: () => import("@/views/dashboard/index"),
         meta: { title: "主页", icon: "dashboard" },
       },
+      
     ],
   },
   {
     path: "/",
     component: Layout,
-    redirect: "/dashboard",
+
     children: [
       {
         path: "eventsearch",
@@ -76,7 +77,7 @@ export const constantRoutes = [
     ],
   },
   {
-    path: "/noHandled",
+    path: "/",
     component: Layout,
     meta: { title: "我的待办", icon: "gerenxinxi" },
     children: [
@@ -122,6 +123,19 @@ export const constantRoutes = [
         name: "information",
         component: () => import("@/views/information"),
         meta: { title: "通知管理", icon: "tongzhi" },
+      },
+    ],
+  },
+  {
+    path: "/",
+    component: Layout,
+    children: [
+      {
+        path: "home",
+        name: "home",
+        component: () => import("@/views/home"),
+        meta: { title: "个人中心", icon: "tongzhi" },
+        hidden: true,
       },
     ],
   },

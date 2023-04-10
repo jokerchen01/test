@@ -51,12 +51,13 @@
       </el-form-item>
       <el-form-item label="特殊资源" prop="resource">
         <el-radio-group v-model="ruleForm.resource">
-          <el-radio label="线上品牌商赞助"></el-radio>
-          <el-radio label="线下场地免费"></el-radio>
+          <el-radio label="待处理"></el-radio>
+          <el-radio label="处理中"></el-radio>
+          <el-radio label="已完成"></el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="活动形式" prop="desc">
-        <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        <el-input type="textarea" v-model="ruleForm.describe"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')"

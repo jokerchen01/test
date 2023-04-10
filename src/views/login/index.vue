@@ -141,6 +141,7 @@ export default {
                 message: "登陆成功！",
                 type: "success",
               });
+         /*      this.$store.commit('user/SET_NAME',this.loginForm.username) */
               this.$router.push({ path: "/" });
               this.loading = false;
             })

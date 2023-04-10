@@ -16,3 +16,7 @@ export const reqEventProperties = () => requests({ url: '/event_properties', met
 export const reqEventLevel = () => requests({ url: '/event_level', method: 'get' })
 
 export const reqEventStreet= () => requests({ url: '/event_street', method: 'get' })
+
+export const reqEventUserInfo = (data) => requests({ url: '/users/user_info', method: 'post',data })
+
+export const reqEventUserChangeInfo = (data) => requests({ url: '/users/user_change', method: 'post',data })

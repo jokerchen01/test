@@ -9,7 +9,7 @@
       </div>
       <div class="content">
         <div class="table-main">
-          <div class="list-card" v-for="(v, index) in list" :key="v.id">
+          <div class="list-card" v-for="(v, index) in list.slice((currentPage - 1) * pageSize, currentPage * pageSize)" :key="v.id">
             <div class="icon">
               <img src="@/assets/images/event/jnqsjsnxt.ce1e5be8.png" />
             </div>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="footer">
-        <el-pagination background layout="prev, pager, next" :total="1000" :current-page="page" :page-size="10"
+        <el-pagination background layout="prev, pager, next" :total=list.length :current-page="currentPage" :page-size="pageSize"
           @current-change="handleCurrentChange" class="pagination">
         </el-pagination>
       </div>
@@ -65,6 +65,8 @@ export default {
       id: "",
       list: [],
       page: 1,
+      currentPage:1,
+      pageSize:5,
 
 
     };
@@ -116,7 +118,9 @@ export default {
       this.$emit("changeState", "detail");
       this.$emit("changeID", id);
     },
-    handleCurrentChange() { },
+    handleCurrentChange(page) {
+      this.currentPage=page
+     },
     goSearch() {
 
      if(this.state!='全部'){

@@ -2,8 +2,28 @@
   <el-card class="box-card">
     <div class="header">
       <div class="icon">新增事件</div>
+      <el-button type="primary" round class="search" @click="handle">处置</el-button>
       <el-button type="primary" round class="return" @click="back">返回</el-button>
-      <!--   <el-button type="primary" round class="search">上报</el-button>
+      <el-dialog title="提示" :visible.sync="show" width="40%">
+       <el-form :model="eventInfo">
+        <el-form-item label="处置意见" prop="desc">
+        <textarea rows="5" cols="100" style="resize: none"  v-model="eventInfo.describe" ></textarea>
+      </el-form-item>
+        <el-form-item label="处置状态" prop="resource">
+        <el-radio-group v-model="eventInfo.state">
+          <el-radio label="待处理"></el-radio>
+          <el-radio label="处理中"></el-radio>
+          <el-radio label="已完成"></el-radio>
+        </el-radio-group>
+      </el-form-item>
+    
+       </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="show = false">取 消</el-button>
+        <el-button type="primary" @click="show = false">确 定</el-button>
+      </span>
+    </el-dialog>
+      <!--   
       <el-button type="primary" round class="reset">保存</el-button> -->
     </div>
     <div class="content">
@@ -50,9 +70,9 @@
             </el-col>
             <el-col :span="8">
               <el-form-item label="所属社区" required>
-                <el-col :span="8">
+               
                   <el-input v-model="eventInfo.street" width="100px" :disabled="true"></el-input>
-                </el-col>
+              
               </el-form-item>
             </el-col>
           </el-row>
@@ -90,8 +110,8 @@
               :file-list="ImageList">
             </el-upload>
 
-            <el-dialog :visible.sync="dialogVisible">
-              <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+            <el-dialog :visible.sync="dialogVisible" :top="0">
+              <img v-if="imageUrl" :src="imageUrl" width="100%" />
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-dialog>
           </el-form-item>
@@ -101,6 +121,7 @@
         </el-form>
       </el-card>
     </div>
+   
   </el-card>
 </template>
 
@@ -157,7 +178,8 @@ export default {
         desc: [{ required: true, message: "请填写活动形式", trigger: "blur" }],
       },
       imageUrl: '',
-      ImageList:[]
+      ImageList: [],
+      show: false
     };
   },
   watch: {
@@ -186,6 +208,9 @@ export default {
     },
     back() {
       this.$emit("changeState", "search");
+    },
+    handle() {
+      this.show = true
     },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
@@ -227,12 +252,14 @@ export default {
 <style lang="scss" scoped>
 .box-card {
   padding: 20px;
+
+  
 }
 
 .header {
   display: flex;
   margin-bottom: 20px;
-
+  
   .icon {
     width: 2000px;
     font-weight: 700;
@@ -276,6 +303,9 @@ export default {
       .el-input--suffix .el-input__inner {
         width: 371px;
       }
+
+
+
     }
 
     .clearfix {

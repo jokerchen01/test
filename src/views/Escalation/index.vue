@@ -14,7 +14,8 @@
           enctype="multipart/form-data">
           <el-row>
             <el-col :span="8"><el-form-item label="事件名称" prop="name">
-                <el-input v-model="ruleForm.title" width="100px"></el-input> </el-form-item></el-col>
+                <el-input v-model="ruleForm.title" ></el-input> </el-form-item></el-col>
+               
             <el-col :span="8">
               <el-form-item label="事件分类" prop="name">
                 <el-cascader v-model="ruleForm.classify" :options="classifyOptions" @change="handleChange"></el-cascader>
@@ -54,7 +55,7 @@
                 </el-select>
               </el-form-item>
             </el-col>
-            <el-col :span="7">
+            <el-col :span="8">
               <el-form-item label="所属社区" required>
 
                 <el-input v-model="ruleForm.community" placeholder="请输入详细地址"></el-input>
@@ -648,11 +649,13 @@ export default {
 
     &::v-deep {
       .el-select .el-input__inner {
-        width: 371px;
+       // width: 371px;
+       width: 370px;
       }
 
       .el-input--suffix .el-input__inner {
-        width: 371px;
+       // width: 371px;
+        width: 370px;
       }
     }
 

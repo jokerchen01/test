@@ -25,6 +25,9 @@ export default {
 
     };
   },
+mounted() {
+  console.log(this);
+},
   methods: {
     changeState(v) {
       this.component = v;
