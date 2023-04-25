@@ -29,6 +29,9 @@ if (process.env.NODE_ENV === "production") {
   mockXHR();
 }
 
+import BaiduMap from 'vue-baidu-map'
+
+Vue.use( BaiduMap, { ak : 'bcgFyx246CQiXlk1FAbh9aQ46d2SCoCn' } )
 
 import moment from "moment";
 Vue.prototype.$moment = moment;

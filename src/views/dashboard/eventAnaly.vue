@@ -8,7 +8,7 @@
           <div class="DRSJ_icon"></div>
           <div class="event_box">
             <div class="value">2521</div>
-            <div class="lable">当日事件总数</div>
+            <div class="lable">事件总数</div>
           </div>
           <div>
             <div class="yesterday">较昨日</div>
@@ -30,31 +30,12 @@
         <div class="top_nav">
           <lableNav :width="'446px'" :title="lableTitle" />
           <div class="btnFlex">
-            <div
-              class="left_triangle"
-              @click="SJQSClick()"
-              title="事件趋势变化"
-              v-show="isShowCurrentEvent"
-            ></div>
-            <div
-              class="right_triangle"
-              @click="DRSJClick()"
-              title="当日事件总数"
-              v-show="!isShowCurrentEvent"
-            ></div>
+            <div class="left_triangle" @click="SJQSClick()" title="事件趋势变化" v-show="isShowCurrentEvent"></div>
+            <div class="right_triangle" @click="DRSJClick()" title="当日事件总数" v-show="!isShowCurrentEvent"></div>
           </div>
         </div>
-        <div
-          ref="lineChart"
-          style="width: 360px; height: 170px"
-          v-show="!isShowCurrentEvent"
-        ></div>
-        <div
-          ref="DRSJZS"
-          style="width: 360px; height: 170px"
-          class="cicular"
-          v-show="isShowCurrentEvent"
-        ></div>
+        <div ref="lineChart" style="width: 360px; height: 170px" v-show="!isShowCurrentEvent"></div>
+        <div ref="DRSJZS" style="width: 360px; height: 170px" class="cicular" v-show="isShowCurrentEvent"></div>
       </div>
     </section>
   </section>
@@ -93,13 +74,13 @@ export default {
     this.getEchart();
   },
   methods: {
-    initData() {},
+    initData() { },
     getEchart() {
       this.initEmergency();
     },
     initEmergency(data) {
-      SJBHQS.series[0].data=this.list1
-      SJBHQS.series[1].data=this.list2
+      SJBHQS.series[0].data = this.list1
+      SJBHQS.series[1].data = this.list2
       let myChartLine = this.$echarts.init(this.$refs.lineChart);
       myChartLine.setOption(SJBHQS);
     },
@@ -127,12 +108,15 @@ export default {
   padding-left: 9px;
   padding-top: 14px;
   padding-right: 13px;
+
   .container {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
+
     .left_box {
       width: 320px;
+
       .DRSJ_bg {
         width: 100%;
         height: 138px;
@@ -143,28 +127,35 @@ export default {
         align-items: center;
         padding-left: 10px;
         padding-right: 9px;
+
         .DRSJ_icon {
           width: 40px;
           height: 40px;
           background: url(~@/assets/images/DRSJ_icon.png) no-repeat;
           background-size: 100% 100%;
         }
+
         .event_box {
-          margin-right: 13px;
+          margin-right: 15px;
+          margin-left: 10px;
         }
+
         .value {
-          height: 28px;
-          line-height: 28px;
+          height: 10px;
+          line-height: 30px;
           margin-bottom: 23px;
+
           font-size: 20px;
           font-family: Akzidenz-Grotesk BQ Condensed;
           font-weight: bold;
           color: #ffffff;
           text-align: center;
         }
+
         .urgenColor {
           color: #df7575;
         }
+
         .lable {
           height: 18px;
           font-size: 12px;
@@ -172,6 +163,7 @@ export default {
           font-weight: 500;
           color: #bcdbe8;
         }
+
         .yesterday {
           height: 14px;
           line-height: 14px;
@@ -183,8 +175,10 @@ export default {
           text-align: right;
           margin-top: 22px;
         }
+
         .compare {
           display: flex;
+
           .rise,
           .slip {
             width: 18px;
@@ -192,23 +186,28 @@ export default {
             background-size: 100% 100%;
             margin-right: 12px;
           }
+
           .rise {
             background: url(~@/assets/images/rise.png) no-repeat;
           }
+
           .slip {
             background: url(~@/assets/images/slip.png) no-repeat;
           }
         }
+
         .text {
           height: 24px;
           font-size: 20px;
           font-family: Akzidenz-Grotesk BQ Condensed;
           font-weight: 400;
           color: #ffffff;
+
           .unit {
             font-size: 16px;
           }
         }
+
         .ic_line {
           background: url(~@/assets/images/ic_line.png) no-repeat;
           background-size: 100% 100%;
@@ -219,14 +218,18 @@ export default {
         }
       }
     }
+
     .right_box {
       width: 360px;
+
       .top_nav {
         display: flex;
         align-items: center;
         padding-right: 30px;
+
         .btnFlex {
           display: flex;
+
           .left_triangle,
           .right_triangle {
             cursor: pointer;
@@ -238,15 +241,18 @@ export default {
             width: 28px;
             height: 28px;
           }
+
           .left_triangle {
             background: url(~@/assets/images/left_icon.png) no-repeat;
             // margin-right: 30px;
           }
+
           .right_triangle {
             background: url(~@/assets/images/right_icon.png) no-repeat;
           }
         }
       }
+
       .cicular {
         background-image: url(~@/assets/images/SJZS_box.png);
         background-repeat: no-repeat;
@@ -255,5 +261,4 @@ export default {
       }
     }
   }
-}
-</style>
+}</style>

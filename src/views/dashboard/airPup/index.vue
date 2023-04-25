@@ -78,7 +78,7 @@
     <section class="complaint">
      <transition name="Table">
       <div class="table_pop" v-show="isShowTable&&!isShowDetails">
-      <el-table
+     <!--  <el-table
         style="width: 100%"
         max-height="600"
         :data="tableList2"
@@ -136,7 +136,7 @@
         :page-size="pageSize"
         @current-change="handleTableChange"
       >
-      </el-pagination>
+      </el-pagination> -->
       </div>
       </transition>
       </section>

@@ -16,9 +16,9 @@
         油烟监测
       </div>
 
-      <div class="sum_text special_text" @click="ShowAnalysis" v-if="currentStatus == 2">
+      <!-- <div class="sum_text special_text" @click="ShowAnalysis" v-if="currentStatus == 2">
         指标关联分析
-      </div>
+      </div> -->
     </section>
     <UsrbanManage v-if="currentStatus == 1" />
     <newlampblack v-if="currentStatus == 2" />

@@ -22,7 +22,7 @@
         <div ref="NDSWFXYH" class="echart_dom"></div>
       </section>
       <div class="line"></div>
-      <el-select
+   <!--    <el-select
         v-model="monthTime"
         placeholder="请选择"
         style="margin-bottom: 30px"
@@ -34,7 +34,7 @@
           :value="v.value"
         >
         </el-option>
-      </el-select>
+      </el-select> -->
       <section class="risk">
         <div class="risk_item" v-show="currentStatus == 1">
           <div
@@ -256,7 +256,7 @@ export default {
         echartDom.setOption(SWFXYHJDFBQK, true);
         echartDom.on("click", function (data) {
           self.$refs.tablePop.street = data.name;
-          self.showTablePop("danger");
+        //  self.showTablePop("danger");
         });
       } else {
         let echartDom = this.$echarts.init(this.$refs.SWFXYHJDFBQK_two);
@@ -264,7 +264,7 @@ export default {
         echartDom.setOption(SWFXYHJDFBQK, true);
         echartDom.on("click", function (data) {
           self.$refs.tablePop.street = data.name;
-          self.showTablePop("group");
+          //self.showTablePop("group");
         });
       }
 
@@ -284,7 +284,7 @@ export default {
         echartDom.setOption(SWFXYHLYFBQK, true);
         echartDom.on("click", function (data) {
           self.$refs.tablePop.categoryField = data.name;
-          self.showTablePop("danger");
+         // self.showTablePop("danger");
         });
       } else {
         let echartDom = this.$echarts.init(this.$refs.SWFXYHLYFBQK_two);
@@ -292,7 +292,7 @@ export default {
         echartDom.setOption(SWFXYHLYFBQK, true);
         echartDom.on("click", function (data) {
           self.$refs.tablePop.categoryField = data.name;
-          self.showTablePop("group");
+         // self.showTablePop("group");
         });
       }
     },
@@ -321,7 +321,7 @@ export default {
             self.$refs.tablePop.queryDate = self
               .$moment(time)
               .format("2022-MM");
-            self.showTablePop("danger", "isCharts");
+           // self.showTablePop("danger", "isCharts");
           });
         });
       } else {
@@ -346,7 +346,7 @@ export default {
             self.$refs.tablePop.queryDate = self
               .$moment(time)
               .format("2022-MM");
-            self.showTablePop("group", "isCharts");
+            //self.showTablePop("group", "isCharts");
           });
         });
       }

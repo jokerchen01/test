@@ -56,72 +56,31 @@
     <div class="title">抢险急修信息台账本</div>
     <div class="table_pop">
       <div class="time_calendar">
-        <el-date-picker
-          v-model="timeList"
-          type="daterange"
-          value-format="yyyy-MM-dd"
-          start-placeholder="年/月/日"
-          end-placeholder="年/月/日"
-          :clearable="false"
-        >
+        <el-date-picker v-model="timeList" type="daterange" value-format="yyyy-MM-dd" start-placeholder="年/月/日"
+          end-placeholder="年/月/日" :clearable="false">
         </el-date-picker>
         <div class="change">
           <div class="query" @click="reqRqaqQXJX()">查询</div>
           <div class="reset" @click="reset">重置</div>
         </div>
       </div>
-      <el-table
-        style="width: 100%"
-        max-height="600"
-        :data="tableList"
-        :cell-style="{ padding: '5px' }"
-      >
+      <el-table style="width: 100%" max-height="600" :data="tableList" :cell-style="{ padding: '5px' }">
         <el-table-column type="index" label="序号" width="70" align="center">
         </el-table-column>
-        <el-table-column
-          prop="report_time"
-          label="接报时间"
-          :show-overflow-tooltip="true"
-          align="center"
-          width="140"
-        >
+        <el-table-column prop="report_time" label="接报时间" :show-overflow-tooltip="true" align="center" width="140">
         </el-table-column>
-        <el-table-column
-          prop="address"
-          label="险情地址"
-          :show-overflow-tooltip="true"
-          align="center"
-          width="220"
-        >
+        <el-table-column prop="address" label="险情地址" :show-overflow-tooltip="true" align="center" width="220">
         </el-table-column>
-        <el-table-column
-          prop="describe"
-          label="险情描述"
-          :show-overflow-tooltip="true"
-          align="center"
-          width="220"
-        >
+        <el-table-column prop="describe" label="险情描述" :show-overflow-tooltip="true" align="center" width="220">
         </el-table-column>
 
-        <el-table-column
-          prop="result"
-          label="险情处置"
-          :show-overflow-tooltip="true"
-          align="center"
-          width="250"
-        >
+        <el-table-column prop="result" label="险情处置" :show-overflow-tooltip="true" align="center" width="250">
         </el-table-column>
       </el-table>
 
       <div class="footer">
-        <el-pagination
-          background
-          layout="total,prev, pager, next"
-          :total="total"
-          :current-page.sync="page"
-          :page-size="pageSize"
-          @current-change="handleTableChange"
-        >
+        <el-pagination background layout="total,prev, pager, next" :total="total" :current-page.sync="page"
+          :page-size="pageSize" @current-change="handleTableChange">
         </el-pagination>
       </div>
     </div>
@@ -186,7 +145,7 @@ export default {
     };
   },
   mounted() {
-   /*  this.reset(); */
+    /*  this.reset(); */
   },
   methods: {
     /* async reqRqaqQXJX() {
@@ -202,8 +161,8 @@ export default {
       this.tableList = res;
     }, */
     handleTableChange(page) {
-     /*  this.page = page;
-      this.reqRqaqQXJX(); */
+      /*  this.page = page;
+       this.reqRqaqQXJX(); */
     },
     reset() {
       this.page = 1;
@@ -221,19 +180,28 @@ export default {
 .gas_serve {
   width: 100%;
   color: #fff;
+
   .title {
     width: 100%;
     height: 30px;
     font-size: 20px;
     font-weight: 700;
   }
+
   .table_pop {
     z-index: 2000;
     background-size: 100% 100%;
     height: auto;
+
     .time_calendar {
       margin: 20px 0 30px 0;
-
+      ::v-deep{
+        .el-date-editor.el-input__inner {
+          background-color: rgba(23, 53, 70) !important;
+          // border-color: #3a769d;
+          /*  color: #fff; */
+        }
+      }
       .change {
         position: absolute;
         top: 500px;
@@ -242,25 +210,27 @@ export default {
         display: flex;
         justify-content: space-between;
         cursor: pointer;
+
         .query {
           width: 80px;
           height: 40px;
           line-height: 42px;
-          background: url("~@/assets/images/搜索.png")
-            no-repeat 100% 100%;
+          background: url("~@/assets/images/搜索.png") no-repeat 100% 100%;
           text-align: center;
         }
+
         .reset {
           width: 80px;
           height: 40px;
           line-height: 42px;
-          background: url("~@/assets/images/搜索.png")
-            no-repeat 100% 100%;
+          background: url("~@/assets/images/搜索.png") no-repeat 100% 100%;
           text-align: center;
         }
       }
     }
+
     ::v-deep {
+
       .el-pagination.is-background .btn-next,
       .el-pagination.is-background .btn-prev,
       .el-pagination.is-background .el-pager li {
@@ -270,21 +240,25 @@ export default {
         background: rgba(174, 216, 255, 0.06);
         border-radius: 2px;
       }
+
       .el-pager li.active {
         width: 36px;
         height: 36px;
         background: rgba(174, 216, 255, 0.06);
         border-radius: 2px;
       }
+
       .footer {
         position: relative;
       }
+
       .totalCount {
         position: absolute;
         top: 10px;
         left: 0;
         font-size: 20px;
         color: #fff;
+
         .el-pagination.is-background .el-pager li:not(.disabled).active {
           width: 36px;
           height: 36px;
@@ -295,9 +269,12 @@ export default {
         .el-pagination .el-input__inner {
           width: 36px !important;
         }
+
+        
       }
     }
   }
+
   .repair {
     display: flex;
     justify-content: space-between;
@@ -308,6 +285,7 @@ export default {
     font-weight: 400;
     color: #ffffff;
     margin-bottom: 20px;
+
     .repair_left {
       width: 47%;
 
@@ -319,15 +297,18 @@ export default {
         /* background: url(/eventCenter/img/tab_title_bg.d8000399.png) no-repeat; */
         background-size: 100%;
       }
+
       .img_left {
         width: 100%;
         height: 300px;
+
         img {
           width: 100%;
           height: 250px;
         }
       }
     }
+
     .repair_right {
       width: 47%;
 
@@ -339,17 +320,21 @@ export default {
         /* background: url(/eventCenter/img/tab_title_bg.d8000399.png) no-repeat; */
         background-size: 100%;
       }
+
       .img_right {
         font-size: 16px;
         text-align: justify;
         line-height: 35px;
         height: 250px;
         overflow-y: auto;
+
         .right_item {
           display: flex;
+
           .left_item {
             width: 100px;
           }
+
           .right_item {
             width: 300px;
             margin-left: 20px;
@@ -359,6 +344,7 @@ export default {
     }
   }
 }
+
 ::v-deep {
   .el-input__inner {
     width: 225px !important;

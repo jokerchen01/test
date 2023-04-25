@@ -69,14 +69,14 @@ export default {
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 60px 20px 30px 20px;
-    min-width: 780px;
-    min-height: 960px;
+  /*   min-width: 780px;
+    min-height: 960px; */
     background: #022b45;
     display: flex;
     justify-content: center;
     .img{
       width: auto;
-      height: 960px;
+      height: 460px;
       object-fit: cover;
     }
     .close-icon{

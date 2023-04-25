@@ -60,7 +60,7 @@ export default {
     };
   },
   created() {
-    this.initData();
+    //this.initData();
   },
   mounted() {
     this.getJtsgs();
@@ -83,7 +83,7 @@ export default {
         })
         .map((i) => i.value);
     },
-    initData() {
+   /*  initData() {
       // 登记次数
       this.$api.eventpivot
         .getTiZheng({
@@ -128,7 +128,7 @@ export default {
         .catch((err) => {
           console.error(err);
         });
-    },
+    }, */
     getJtsgs() {
       const mychart = echarts.init(this.$refs.genderDistributeEcharts);
       mychart.setOption(distributeOfMedicalGroup_gender);

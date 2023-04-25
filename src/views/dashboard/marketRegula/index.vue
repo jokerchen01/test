@@ -769,10 +769,10 @@ export default {
     };
   },
   mounted() {
-    this.initData();
+   // this.initData();
   },
   methods: {
-    initData() {
+  /*   initData() {
       // 食品生产企业数
       this.$api.statePup
         .getDataSet({ dateCode: ["nw"] }, "IDX_CQYS")
@@ -903,7 +903,7 @@ export default {
       this.initPie1();
       this.initPie2();
       this.initPie3();
-    },
+    }, */
     // 获取表格数据
     getTableData(flag, pageNum) {
       console.log(sessionStorage);

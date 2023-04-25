@@ -1,0 +1,20 @@
+.el-picker-panel {
+    border-top: 1px solid #e4e4e4 !important;
+    background-color: #fff !important;
+    margin: 10px;
+
+  }
+
+  .el-picker-panel .el-date-table td span {
+    color: black;
+  }
+
+  .el-picker-panel .el-picker-panel__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: #fff;
+}
+
+.el-picker-panel .el-button {
+    color: black;
+    background: #fff;
+}

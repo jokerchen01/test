@@ -3,20 +3,21 @@
     <el-card class="box-card">
       <div class="header">
         <div class="icon"></div>
-        <el-input v-model="id" placeholder="请输入事件编号"></el-input>
-        <el-button type="primary" round class="search" @click="goSearch">查询</el-button>
+        <el-input v-model="id" placeholder="请输入事件编号(数字)" @input="handleEdit"></el-input>
+        <el-button type="primary" round class="search" @click="goSearch" >查询</el-button>
         <el-button type="primary" round class="reset" @click="goReset">重置</el-button>
       </div>
       <div class="content">
         <div class="table-main">
-          <div class="list-card" v-for="(v, index) in list.slice((currentPage - 1) * pageSize, currentPage * pageSize)" :key="v.id">
+          <div class="list-card" v-for="(v, index) in list.slice((currentPage - 1) * pageSize, currentPage * pageSize)"
+            :key="v.id">
             <div class="icon">
               <img src="@/assets/images/event/jnqsjsnxt.ce1e5be8.png" />
             </div>
             <div class="clearfix">
               <div class="item-info">
                 <div class="left">
-                  <div class="title">事件问题测试</div>
+                  <div class="title">{{v.title}}</div>
                   <div>
                     <div>事件编号:{{ v.id }}</div>
                     <div>上报人:{{ v.name }}</div>
@@ -42,8 +43,8 @@
         </div>
       </div>
       <div class="footer">
-        <el-pagination background layout="prev, pager, next" :total=list.length :current-page="currentPage" :page-size="pageSize"
-          @current-change="handleCurrentChange" class="pagination">
+        <el-pagination background layout="prev, pager, next" :total=list.length :current-page="currentPage"
+          :page-size="pageSize" @current-change="handleCurrentChange" class="pagination">
         </el-pagination>
       </div>
     </el-card>
@@ -57,7 +58,7 @@ export default {
   props: {
     state: {
       type: String,
-    
+
     }
   },
   data() {
@@ -65,8 +66,8 @@ export default {
       id: "",
       list: [],
       page: 1,
-      currentPage:1,
-      pageSize:5,
+      currentPage: 1,
+      pageSize: 5,
 
 
     };
@@ -119,27 +120,33 @@ export default {
       this.$emit("changeID", id);
     },
     handleCurrentChange(page) {
-      this.currentPage=page
-     },
+      this.currentPage = page
+    },
     goSearch() {
 
-     if(this.state!='全部'){
-      this.$api.event.reqEventSearchState({
-        id: this.id,
-        state: this.state
-      }).then((res) => {
-        res.data.length!=0?(this.list=res.data,this.$message.success('查询成功!')): this.$message.error('编号不存在，请重新查询!');
-      })
-     }else{
-      this.$api.event.reqEventSearchID({
-        id:this.id
-      }).then((res) => {
-        res.data.length!=0?(this.list=res.data,this.$message.success('查询成功!')): this.$message.error('编号不存在，请重新查询!');
+      if (this.state != '全部') {
+        this.$api.event.reqEventSearchState({
+          id: this.id,
+          state: this.state
+        }).then((res) => {
+          res.data.length != 0 ? (this.list = res.data, this.$message.success('查询成功!')) : this.$message.error('编号不存在，请重新查询!');
         })
-     }
+      } else {
+        this.$api.event.reqEventSearchID({
+          id: this.id
+        }).then((res) => {
+          res.data.length != 0 ? (this.list = res.data, this.$message.success('查询成功!')) : this.$message.error('编号不存在，请重新查询!');
+        })
+      }
 
 
     },
+    handleEdit(e) {
+      let value = e.replace(/^(0+)|[^\d]+/g, ''); // 以0开头或者输入非数字，会被替换成空
+      value = value.replace(/(\d{15})\d*/, '$1') // 最多保留15位整数
+      this.id = value
+    },
+
     goReset() {
       this.getInfo(this.state)
     }

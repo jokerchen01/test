@@ -98,7 +98,7 @@ export default {
     };
     return {
       loginForm: {
-        username: "网格员1",
+        username: "网格员",
         password: "123456",
         code: "",
       },

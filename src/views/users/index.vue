@@ -1,132 +1,57 @@
 <template>
   <div class="leaving">
     <el-form>
-      <el-row>
-        <el-col :span="8">
-          <el-input
-            v-model="ruleForm.name"
-            placeholder="搜索离校申请(学号)"
-          ></el-input>
-        </el-col>
-      </el-row>
+      <el-button type="primary" round @click="newUser">新增角色</el-button>
       <div class="tableList">
         <el-table :data="tableData" style="width: 100%">
-          <el-table-column type="selection"> </el-table-column>
 
+          <el-table-column label="用户名" prop="username"> </el-table-column>
+          <el-table-column label="所属街道" prop="street"> </el-table-column>
           <el-table-column label="姓名" prop="name"> </el-table-column>
-          <el-table-column label="学号" prop="date"> </el-table-column>
-          <el-table-column label="学院" prop="name"> </el-table-column>
-          <el-table-column label="专业班级" prop="name"> </el-table-column>
-          <el-table-column label="电话" prop="name"> </el-table-column>
-          <el-table-column label="权限" prop="name"> </el-table-column>
-
-          <el-table-column align="center" label="操作" width="250px">
+          <el-table-column label="性别" prop="sex"> </el-table-column>
+          <el-table-column label="电子邮箱" prop="email"> </el-table-column>
+          <el-table-column label="电话" prop="phone"> </el-table-column>
+          <el-table-column align="center" label="操作">
             <template slot-scope="scope">
-              <el-button
-                type="primary"
-                icon="el-icon-edit"
-                circle
-                @click="goDetail"
-              ></el-button>
-              <el-button type="danger" icon="el-icon-delete" circle></el-button>
+
+              <el-button type="danger" icon="el-icon-delete" circle @click="deleted(scope.row.name)"></el-button>
             </template>
           </el-table-column>
         </el-table>
       </div>
     </el-form>
     <section class="detail">
-      <el-dialog
-        title="申请详情"
-        :visible.sync="dialogVisible"
-        width="40%"
-        :before-close="handleClose"
-      >
-        <el-form label-width="80px" v-model="form">
-          <el-form-item label="申请人">
-            <el-col :span="8">
-              <el-input v-model="form.applicant"></el-input>
-            </el-col>
+      <el-dialog title="提示" :visible.sync="dialogVisible" width="40%" :before-close="handleClose">
+        确认删除该用户吗？
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="handle">确定</el-button>
+        </span>
+      </el-dialog>
+    </section>
+    <section class="detail">
+      <el-dialog title="提示" :visible.sync="dialogVisible2" width="40%" :before-close="handleClose2">
+        <el-form :model="users" label-position="left" label-width="100px">
+          <el-form-item label="用户名">
+            <el-input v-model="users.username" placeholder=""></el-input>
           </el-form-item>
-          <el-form-item label="学号">
-            <el-col :span="8">
-              <el-input v-model="form.sno"></el-input>
-            </el-col>
+          <el-form-item label="密码">
+            <el-input v-model="users.password" placeholder=""></el-input>
           </el-form-item>
-          <el-form-item label="专业班级">
-            <el-col :span="24">
-              <el-input v-model="form.class"></el-input>
-            </el-col>
+          <el-form-item label="姓名">
+            <el-input v-model="users.name" placeholder=""></el-input>
           </el-form-item>
-          <el-form-item label="电话">
-            <el-col :span="8">
-              <el-input v-model="form.phone"></el-input>
-            </el-col>
+          <el-form-item label="所属街道" label-width="100px">
+            <el-select v-model="users.street" placeholder="请选择">
+                  <el-option v-for="item in streetOptions" :key="item.street" :label="item.street" :value="item.street">
+                  </el-option>
+                </el-select>
           </el-form-item>
-          <el-form-item label="请假理由">
-            <el-col :span="24">
-              <textarea class="textarea"></textarea>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="出校时间">
-            <el-col :span="8">
-              <el-date-picker
-                v-model="form.start_time"
-                type="datetime"
-                placeholder="选择日期时间"
-              >
-              </el-date-picker>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="返校时间">
-            <el-col :span="8">
-              <el-date-picker
-                v-model="form.end_time"
-                type="datetime"
-                placeholder="选择日期时间"
-              >
-              </el-date-picker>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="目的地">
-            <el-col :span="24">
-              <el-input v-model="form.destination"></el-input>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="审批记录">
-            <el-col :span="24">
-              <el-table :data="form.tableList" style="width: 100%">
-                <el-table-column prop="Approver" label="操作人" width="width">
-                </el-table-column>
-                <el-table-column prop="opinion" label="审批意见" width="width">
-                </el-table-column>
-                <el-table-column prop="time" label="处理时间" width="width">
-                </el-table-column>
-              </el-table>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="审批人">
-            <el-col :span="24">
-              <el-input v-model="form.Approver"></el-input>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="审批意见">
-            <el-col :span="24">
-              <el-input v-model="form.opinion"></el-input>
-            </el-col>
-          </el-form-item>
-          <el-form-item label="审批结果">
-            <el-radio-group v-model="form.reason">
-              <el-radio label="同意"></el-radio>
-              <el-radio label="拒绝"></el-radio>
-              <el-radio label="不做处理"></el-radio>
-            </el-radio-group>
-          </el-form-item>
+
         </el-form>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">同意</el-button>
-          <el-button type="primary" @click="dialogVisible = false"
-            >拒绝</el-button
-          >
+          <el-button @click="dialogVisible2 = false">取消</el-button>
+          <el-button type="primary" @click="handle2">确定</el-button>
         </span>
       </el-dialog>
     </section>
@@ -137,55 +62,21 @@
 export default {
   data() {
     return {
-      ruleForm: {
-        name: "",
-      },
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
-        },
-      ],
+      tableData: [],
       dialogVisible: false,
-      form: {
-        applicant: "",
-        sno: "",
-        class: "",
-        phone: "",
-        reason: "",
-        leave_time: "",
-        return_time: "",
-        destination: "",
-        Approver: "",
-        opinion: "",
-        start_time: "",
-        end_time: "",
-        tableList: [
-          {
-            Approver: "张三",
-            opinion: "无",
-            time: "2022-11-28",
-          },
-        ],
+      dialogVisible2: false,
+      name: '',
+      users: {
+        username: '',
+        password: '',
+        name: '',
+        street:''
       },
-      resource: "",
+      streetOptions: [],
     };
+  },
+  mounted() {
+    this.getUserInfo()
   },
   methods: {
     handleClose(done) {
@@ -193,11 +84,49 @@ export default {
         .then((_) => {
           done();
         })
-        .catch((_) => {});
+        .catch((_) => { });
     },
-    goDetail() {
-      this.dialogVisible = true;
+    handleClose2(done) {
+      this.$confirm("确认关闭？")
+        .then((_) => {
+          done();
+        })
+        .catch((_) => { });
     },
+    getUserInfo() {
+      this.$api.event.reqAllUsers().then((res) => {
+
+        this.tableData = res.data
+
+      })
+      this.$api.event.reqEventStreet().then((res) => {
+        this.streetOptions = res.data
+      })
+    },
+    deleted(name) {
+
+      this.name = name
+      this.dialogVisible = true
+    },
+    handle() {
+      this.$api.event.reqUsersDelete({
+        name: this.name
+      }).then((res) => {
+        res.code == 200 ? (this.$message.success('删除成功!'), this.getUserInfo()) : this.$message.error('删除失败!');
+      })
+      this.dialogVisible = false
+    },
+    handle2() {
+      this.$api.event.reqNewUser({
+        users: this.users
+      }).then((res) => {
+        res.code == 200 ? (this.$message.success('添加成功!'), this.getUserInfo()) : this.$message.error('添加失败!');
+      })
+      this.dialogVisible2 = false
+    },
+    newUser() {
+      this.dialogVisible2 = true
+    }
   },
 };
 </script>
@@ -211,6 +140,7 @@ export default {
   .detail {
     height: 500px;
     overflow-y: auto;
+
     textarea {
       resize: none;
       min-height: 80px;
@@ -218,24 +148,28 @@ export default {
       outline-color: rgb(84, 157, 254); // 鼠标聚焦边框颜色
     }
   }
+
   .tableList {
     ::v-deep {
       .el-table__header {
         background: transparent;
       }
-      .el-table thead tr{
+
+      .el-table thead tr {
         color: #909399;
         font-weight: 500;
-         background: #fff !important;
+        background: #fff !important;
       }
+
       .el-table tbody tr {
-         color: black;
-         background: #fff !important;
+        color: black;
+        background: #fff !important;
       }
+
       .el-table tr {
         font-size: 16px;
       }
-      
+
       .el-table td,
       .el-table th.is-leaf {
         border-bottom: 1px solid #ebeef5;

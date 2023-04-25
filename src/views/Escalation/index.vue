@@ -14,15 +14,15 @@
           enctype="multipart/form-data">
           <el-row>
             <el-col :span="8"><el-form-item label="事件名称" prop="name">
-                <el-input v-model="ruleForm.title" ></el-input> </el-form-item></el-col>
-               
+                <el-input v-model="ruleForm.title"></el-input> </el-form-item></el-col>
+
             <el-col :span="8">
               <el-form-item label="事件分类" prop="name">
                 <el-cascader v-model="ruleForm.classify" :options="classifyOptions" @change="handleChange"></el-cascader>
               </el-form-item>
             </el-col>
-            <el-col :span="8"><el-form-item label="发生时间">
-                <el-date-picker v-model="ruleForm.time" type="datetime" placeholder="选择日期时间">
+            <el-col :span="8"><el-form-item label="发生时间" class="time">
+                <el-date-picker v-model="ruleForm.time" type="datetime" placeholder="选择日期时间" value-format="yyyy-DD-MM hh:mm:ss">
                 </el-date-picker></el-form-item></el-col>
           </el-row>
           <el-row>
@@ -39,12 +39,10 @@
                 </el-select>
               </el-form-item>
             </el-col>
+            <div class="map"><Map @choose="choose"></Map></div>
           </el-row>
           <el-form-item label="发生位置" prop="region">
-            <el-select v-model="ruleForm.position" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
+            <el-input v-model="ruleForm.position"></el-input>
           </el-form-item>
           <el-row>
             <el-col :span="8">
@@ -112,7 +110,11 @@
 </template>
 
 <script>
+import Map from './map.vue'
 export default {
+  components: {
+    Map
+  },
   data() {
     return {
       dialogVisible: false,
@@ -190,6 +192,9 @@ export default {
           children: [{
             value: '环境保护类固体危险废物类',
             label: '环境保护类固体危险废物类'
+          }, {
+            value: '环境保护类-暴露垃圾类',
+            label: '环境保护类-暴露垃圾类'
           }, {
             value: '环境保护类噪声扰民类',
             label: '环境保护类噪声扰民类'
@@ -332,8 +337,11 @@ export default {
               value: '消防安全类消防通道堵塞类',
               label: '消防安全类消防通道堵塞类'
             }, {
-              value: '消防安全樊消防知识宣传教育类',
-              label: '消防安全樊消防知识宣传教育类'
+              value: '消防安全类消防知识宣传教育类',
+              label: '消防安全类消防知识宣传教育类'
+            }, {
+              value: '消防安全类危险用电类',
+              label: '消防安全类危险用电类'
             },
 
           ]
@@ -344,6 +352,9 @@ export default {
           children: [{
             value: '劳动保障类其他劳动保障类',
             label: '劳动保障类其他劳动保障类'
+          }, {
+            value: '劳动保障类-工资福利',
+            label: '劳动保障类-工资福利'
           }, {
             value: '劳动保障类-极端方式讨薪类',
             label: '劳动保障类-极端方式讨薪类'
@@ -405,6 +416,9 @@ export default {
           }, {
             value: '市场监管类三小行业食品安全类',
             label: '市场监管类三小行业食品安全类'
+          }, {
+            value: '市场监管类-监管其他类',
+            label: '市场监管类-监管其他类'
           },]
         }
           , {
@@ -504,13 +518,14 @@ export default {
         sex: '',
         phone: '',
         ImageList: '',
-        state: '待处理'
+        state: '待处理',
+        opinion: ''
 
       },
       rules: {
         name: [
           { required: true, message: "请输入活动名称", trigger: "blur" },
-          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" },
+          { min: 3, max: 15, message: "长度在 3 到 5 个字符", trigger: "blur" },
         ],
         region: [
           { required: true, message: "请选择活动区域", trigger: "change" },
@@ -556,11 +571,11 @@ export default {
     },
     increased() {
       console.log(this.ruleForm);
-   
+
       this.$api.event.reqEventDetail({
         ruleForm: this.ruleForm
       }).then((res) => {
-        console.log(res);
+        res.code == 200 ? (this.$message.success('上报成功!'), this.$router.push('/')) : this.$message.error('上报失败!，请重新上报');
       })
     },
     preserve() {
@@ -580,8 +595,8 @@ export default {
       this.$refs[formName].resetFields();
     },
     handleAvatarSuccess(res, file, fileList) {
-      this.ruleForm.ImageList=fileList
-      console.log( this.ruleForm.ImageList);
+      this.ruleForm.ImageList = fileList
+      console.log(this.ruleForm.ImageList);
       /* this.ruleForm.img = URL.createObjectURL(file.raw); */
 
     },
@@ -604,12 +619,16 @@ export default {
     handlePictureCardPreview(file) {
       this.img = file.url;
       this.dialogVisible = true;
+    },
+    choose(keyword) {
+      this.ruleForm.position = keyword
     }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import url('./new.scss');
 .box-card {
   padding: 20px;
 }
@@ -649,20 +668,35 @@ export default {
 
     &::v-deep {
       .el-select .el-input__inner {
-       // width: 371px;
-       width: 370px;
+        // width: 371px;
+        width: 370px;
       }
 
       .el-input--suffix .el-input__inner {
-       // width: 371px;
+        // width: 371px;
         width: 370px;
       }
+
+      .el-picker-panel {
+        background-color: transparent !important;
+      }
     }
+
+   
 
     .clearfix {
       font-weight: 700;
     }
   }
+}
+
+.map {
+  position: absolute;
+  top: -30px;
+  right: 140px;
+  width: 300px;
+  height: 100px;
+
 }
 </style>
 

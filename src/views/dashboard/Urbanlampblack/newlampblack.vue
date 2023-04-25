@@ -91,7 +91,7 @@ export default {
     };
   },
   mounted() {
-    this.initData();
+    //this.initData();
     // this.$api.eventpivot
     //       .getTiZheng({ indicatorId: "46d3213a9fbe4d85ac0c3e8d49b0d12c" })
     //       .then((res) => {
@@ -107,7 +107,7 @@ export default {
     changeTab(name) {
       this.tabValue = name;
     },
-    initData() {
+ /*    initData() {
       let json = {
         dateCode: ["nw"],
       };
@@ -154,7 +154,7 @@ export default {
         });
       });
      
-    },
+    }, */
     addPointHandle() {
    
     },

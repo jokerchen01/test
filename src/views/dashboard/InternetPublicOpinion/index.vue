@@ -318,9 +318,9 @@ export default {
         });
       
       //可燃气体探测器预警明细
-      this.$api.statePup.getWlyqlist().then((res) => {
+      /* this.$api.statePup.getWlyqlist().then((res) => {
         this.tableList = res.data;
-      });
+      }); */
     },
     //点击查看
     async openPupClick(id) {
@@ -346,7 +346,7 @@ export default {
     },
     //展示舆情表格
     showTablePop(e, isxxlx, data, blzt) {
-      if (isxxlx == "isxxlx") {
+     /*  if (isxxlx == "isxxlx") {
         this.$refs.table_pop.lx = e.target.innerText.split("\n")[0];
       }
       this.currentStatus = 3;
@@ -376,7 +376,7 @@ export default {
         } else {
           this.$refs.table_pop.blzt = "";
         }
-      }
+      } */
     },
   },
   computed: {

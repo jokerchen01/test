@@ -46,7 +46,7 @@
 
         <el-table-column align="center" label="原文" width="100">
           <template slot-scope="scope">
-            <span class="reply" @click="open(scope.row.url)">查看</span></span>
+            <span class="reply" @click="open(scope.row.url)">查看</span>
           </template>
         </el-table-column>
       </el-table>
